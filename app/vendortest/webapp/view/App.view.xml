@@ -1,0 +1,89 @@
+<!-- <mvc:View controllerName="vendortest.controller.App"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <App id="app">
+    </App>
+</mvc:View> -->
+<!-- <mvc:View controllerName="vendrcmplain.controller.App" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+    <App id="app">
+    </App>
+</mvc:View> -->
+<mvc:View controllerName="vendortest.controller.App"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<NavContainer id="wizardNavContainer" height="100vh">
+		<pages>
+			<Page id="wizardContentPage" showHeader="false">
+				<content>
+					<Wizard id="CreateProductWizard" class="height1" renderMode="Page" navigationChange= "change">
+						<WizardStep id="ProductTypeStep" title="PAN Details" validated="false">
+							<!-- <MessageStrip id="demo" class="sapUiSmallMarginBottom" text="The Wizard control is supposed to break down large tasks, into smaller steps, easier for the user to work with." showIcon="true" /> -->
+							<Table id="panTable" inset="false" mode="SingleSelect"  selectionChange="panrowchange" items="{
+										path: '/vendor'
+							}" >
+								<columns >
+
+									<Column width="200px">
+										<Text text="PAN Number" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="Vendor Code" />
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem vAlign="Middle">
+										<cells >
+											<Text text="{panno}"></Text>
+											<Text text="{vencode}"></Text>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+							<!-- <Text id="t1" class="sapUiSmallMarginBottom" text="Sedtum, mi et tristique ullamcorper, sapien sapien faucibus sem, quis pretium nibh lorem malesuada diam. Nulla quis arcu aliquet, feugiat massa semper, volutpat diam. Nam vitae ante posuere, molestie neque sit amet, dapibus velit. Maecenas eleifend tempor lorem. Mauris vitae elementum mi, sed eleifend ligula. Nulla tempor vulputate dolor, nec dignissim quam convallis ut. Praesent vitae commodo felis, ut iaculis felis. Fusce quis eleifend sapien, eget facilisis nibh. Suspendisse est velit, scelerisque ut commodo eget, dignissim quis metus. Cras faucibus consequat gravida. Curabitur vitae quam felis. Phasellus ac leo eleifend, commodo tortor et, varius quam. Aliquam erat volutpat"/> -->
+						</WizardStep>
+						<WizardStep id="ProductInfoStep" validated="true" title="PO Details" activate="editStepTwo">
+							<Table id="idProductsTable" inset="false"  mode="SingleSelect" 
+							items="{
+								path: '/poheader'
+									}">
+								<columns>
+									<Column width="200px">
+										<Text text="PO Number" />
+									</Column>
+									<Column demandPopin="true">
+										<Text text="Vendor Code" />
+									</Column>
+									<Column demandPopin="true">
+										<Text text="Amount" />
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem vAlign="Middle">
+										<cells>
+											<Text text="{pono}"></Text>
+											<Text text="{vendor}"></Text>
+											<Text text="{amount}"></Text>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</WizardStep>
+						<WizardStep id="OptionalInfoStep" validated="true" activate="optionalStepActivation" title="Optional Information">
+							<Text id="ddd3" text="Integer pellentesque leo sit amet dui vehicula, quis ullamcorper est pulvinar. Nam in libero sem. Suspendisse arcu metus, molestie a turpis a, molestie aliquet dui. Donec ppellentesque leo sit amet dui vehicula, quis ullamcorper est pulvinar. Nam in libero sem. Suspendisse arcu metus, molestie a turpis a, molestie aliquet dui. Donec pulvinar, sapien	corper eu, posuere malesuada nisl. Integer pellentesque leo sit amet dui vehicula, quis ullamcorper est pulvinar. Nam in libero sem. Suspendisse arcu metus, molestie a turpis a, molestie aliquet dui. Donec pulvinar, sapien	" />
+						</WizardStep>
+						<WizardStep id="PricingStep" activate="pricingActivate" complete="pricingComplete" validated="true" title="Pricing">
+							<Text id="dddd" text="Integer pellentesque leo sit amet dui vehicula, quis ullamcorper est pulvinar. Nam in libero sem. Suspendisse arcu metus, molestie a turpis a, molestie aliquet dui. Donec ppellentesque leo sit amet dui vehicula, quis ullamcorper est pulvinar. Nam in libero sem. Suspendisse arcu metus, molestie a turpis a, molestie aliquet dui. Donec pulvinar, sapien	corper eu, posuere malesuada nisl. Integer pellentesque leo sit amet dui vehicula, quis ullamcorper est pulvinar. Nam in libero sem. Suspendisse arcu metus, molestie a turpis a, molestie aliquet dui. Donec pulvinar, sapien	" />
+						</WizardStep>
+					</Wizard>
+				</content>
+				<footer>
+					<OverflowToolbar id="oflow1">
+						<Button id="sss" text="Cancel" press="handleWizardCancel" />
+					</OverflowToolbar>
+				</footer>
+			</Page>
+		</pages>
+	</NavContainer>
+</mvc:View>
